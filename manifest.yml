@@ -1,0 +1,8 @@
+---
+applications:
+- name: label-registration
+  instances: 1
+  memory: 512M
+  services:
+   - label-registration-config
+  path: target/label-registration.jar
