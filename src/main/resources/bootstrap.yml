@@ -1,0 +1,28 @@
+---
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: https://eureka-179c229f-67b6-4280-8cdf-c028e34219c7.apps.kadaster.examples.cf
+
+feign:
+  hystrix:
+    enabled: true
+
+spring:
+  application:
+    name: label-registration
+
+management:
+  security:
+    enabled: false
+
+---
+
+spring:
+  profiles: cloud
+
+eureka:
+  instance:
+    hostname: label-registration.apps.kadaster.examples.cf
+    nonSecurePort: 80
