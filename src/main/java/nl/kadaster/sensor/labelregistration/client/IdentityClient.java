@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import nl.kadaster.sensor.labelregistration.model.Identity;
 
-@FeignClient(name = "identity")
+@FeignClient(name = "identity", fallback = IdentityClientFallback.class)
 public interface IdentityClient {
 
 	@RequestMapping(method = RequestMethod.GET, value = "/identities")

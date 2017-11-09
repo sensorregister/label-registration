@@ -1,4 +1,6 @@
 ---
+
+# TODO: turn on when Eureka is in place
 feign:
   hystrix:
     enabled: false

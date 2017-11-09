@@ -3,7 +3,6 @@ package nl.kadaster.sensor.labelregistration.model;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -11,8 +10,6 @@ public class Identity {
 
 	private String id;
 	private String telephoneNumber;
-
-	@JsonProperty("codes")
 	private List<String> codes;
 
 	public String getId() {
