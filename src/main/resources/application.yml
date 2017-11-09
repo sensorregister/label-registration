@@ -12,3 +12,9 @@ identity:
          enabled: false
       listOfServers: ${vcap.services.label-registration-config.credentials.identity.url}
 
+spring:
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      exclude: static/**,templates/**
