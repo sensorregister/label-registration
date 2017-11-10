@@ -1,6 +1,9 @@
 ---
 
-# TODO: turn on when Eureka is in place
+spring:
+  application:
+    name: label-registration
+
 feign:
   hystrix:
     enabled: false

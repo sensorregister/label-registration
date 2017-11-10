@@ -5,13 +5,6 @@ logging:
       nl.kadaster.sensor: INFO
       org.springframework: INFO
 
-# TODO: remove when Eureka is in place
-identity:
-   ribbon:
-      eureka:
-         enabled: false
-      listOfServers: ${vcap.services.label-registration-config.credentials.identity.url}
-
 spring:
   devtools:
     livereload:

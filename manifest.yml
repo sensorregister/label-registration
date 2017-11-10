@@ -2,7 +2,12 @@
 applications:
 - name: label-registration
   instances: 1
-  memory: 512M
+  memory: 1G
   services:
    - label-registration-config
+   - config-server
+   - disco
   path: target/label-registration.jar
+  env:
+    TRUST_CERTS: eureka-179c229f-67b6-4280-8cdf-c028e34219c7.apps.kadaster.examples.cf
+    SPRING_PROFILES_ACTIVE: cloud
