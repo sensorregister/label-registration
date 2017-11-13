@@ -22,7 +22,9 @@ class App extends React.Component {
     }
 
     render() {
-        return (<RegisterApp />);
+        return (
+            <RegisterApp />
+        );
     }
 }
 // end::app[]
@@ -88,9 +90,12 @@ class Scanner extends React.Component{
 class RegisterApp extends React.Component {
     render() {
         return (
-            <div className={"container"}>
-                <div className={"row"}>Preview</div>
-                <div className={"row"}><Scanner/></div>
+
+            <div className={"card bg-light mb-3"}>
+              <div className={"card-header"}>Camera</div>
+              <div className={"card-body"}>
+                 <div className={"row"}><Scanner/></div>
+              </div>
             </div>
         )
     }
