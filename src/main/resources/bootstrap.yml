@@ -7,3 +7,16 @@ spring:
 feign:
   hystrix:
     enabled: false
+
+---
+
+spring:
+  profiles: dev
+
+eureka:
+  client:
+    enabled: false
+
+identity:
+   ribbon:
+      listOfServers: http://localhost:8081
