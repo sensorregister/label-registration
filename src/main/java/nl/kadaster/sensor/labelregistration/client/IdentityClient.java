@@ -20,4 +20,7 @@ public interface IdentityClient {
 
 	@RequestMapping(method = RequestMethod.POST, value = "/identities/{id}", consumes = "application/json")
 	Identity update(@PathVariable("id") String id, Identity identity);
+
+	@RequestMapping(method = RequestMethod.POST, value = "/identities", consumes = "application/json")
+	Identity create(Identity identity);
 }
