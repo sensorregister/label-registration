@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.common.collect.ImmutableMap;
 
-import nl.kadaster.sensor.labelregistration.client.IdentityClient;
+import nl.kadaster.sensor.labelregistration.client.RegisterClient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +17,11 @@ import java.util.List;
 @RestController
 public class RegisterController {
 
-	private IdentityClient identityClient;
+	private RegisterClient registerClient;
 
 	@Autowired
-	public RegisterController(IdentityClient identityClient) {
-		this.identityClient = identityClient;
+	public RegisterController(RegisterClient registerClient) {
+		this.registerClient = registerClient;
 	}
 
 	@GetMapping("/register")
@@ -35,7 +35,7 @@ public class RegisterController {
     public ResponseEntity<?> register(@RequestBody Registration registration) {
 
         Identity identity = Identity.fromRegistration(registration);
-        Identity result = identityClient.create(identity);
+        Identity result = registerClient.create(identity);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
@@ -43,7 +43,7 @@ public class RegisterController {
 
 	@GetMapping("/identities")
 	public ResponseEntity<?> identities(@RequestParam(value = "page", required = false, defaultValue = "0") int page) {
-		return new ResponseEntity<>(ImmutableMap.of("identities", identityClient.getIdentities(page).getContent()),
+		return new ResponseEntity<>(ImmutableMap.of("identities", registerClient.getIdentities(page).getContent()),
 				HttpStatus.OK);
 	}
 

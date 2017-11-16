@@ -17,6 +17,6 @@ eureka:
   client:
     enabled: false
 
-identity:
+register:
    ribbon:
       listOfServers: http://localhost:8081

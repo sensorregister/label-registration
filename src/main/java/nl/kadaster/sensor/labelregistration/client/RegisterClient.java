@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import nl.kadaster.sensor.labelregistration.model.Identity;
 
-@FeignClient(name = "identity")
-public interface IdentityClient {
+@FeignClient(name = "register")
+public interface RegisterClient {
 
 	@RequestMapping(method = RequestMethod.GET, value = "/identities")
 	PagedResources<Identity> getIdentities(@RequestParam("page") int page);
