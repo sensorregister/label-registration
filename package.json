@@ -2,8 +2,8 @@
   "name": "label-registration",
   "version": "0.1.0",
   "description": "Register labels",
-  "author": "Greg L. Turnquist",
-  "license": "Apache-2.0",
+  "author": "Kadaster",
+  "license": "EPL-1.0",
   "dependencies": {
     "baconjs": "^0.7.95",
     "bootstrap": "^4.0.0-alpha.6",
