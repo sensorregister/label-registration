@@ -12,10 +12,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Value("${vcap.services.label-registration-config.credentials.user:user}")
+	@Value("${vcap.services.registration-config.credentials.user:user}")
 	private String username;
 
-	@Value("${vcap.services.label-registration-config.credentials.password:password}")
+	@Value("${vcap.services.registration-config.credentials.password:password}")
 	private String password;
 
 	@Override

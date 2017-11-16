@@ -4,7 +4,7 @@ applications:
   instances: 1
   memory: 1G
   services:
-   - label-registration-config
+   - registration-config
    - config-server
    - disco
   path: target/label-registration.jar
