@@ -11,3 +11,5 @@ applications:
   env:
     TRUST_CERTS: eureka-179c229f-67b6-4280-8cdf-c028e34219c7.apps.kadaster.examples.cf
     SPRING_PROFILES_ACTIVE: cloud
+  routes:
+   - route: label-registration.apps.cf.kadaster.nl
