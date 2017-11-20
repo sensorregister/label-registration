@@ -13,3 +13,4 @@ applications:
     SPRING_PROFILES_ACTIVE: cloud
   routes:
    - route: label-registration.apps.cf.kadaster.nl
+   - route: balie.senzd.nl
