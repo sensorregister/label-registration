@@ -67,7 +67,7 @@ class Scanner extends React.Component{
     componentDidMount() {
         var self = this;
 
-        var scanner = new Instascan.Scanner({ video: document.getElementById('finder1'), scanPeriod: 5 })
+        var scanner = new Instascan.Scanner({ video: document.getElementById('finder1'), scanPeriod: 5, mirror: false })
         scanner.addListener('scan', this.props.scanListener);
         this._scanner = scanner;
 
