@@ -8,6 +8,14 @@ feign:
   hystrix:
     enabled: false
 
+eureka:
+  client:
+    enabled: false
+
+register:
+   ribbon:
+      listOfServers: ${vcap.services.registration-config.credentials.register.url}
+
 ---
 
 spring:
