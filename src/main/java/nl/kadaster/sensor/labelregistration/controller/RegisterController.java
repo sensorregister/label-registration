@@ -1,7 +1,9 @@
 package nl.kadaster.sensor.labelregistration.controller;
 
+import nl.kadaster.sensor.labelregistration.model.Code;
 import nl.kadaster.sensor.labelregistration.model.Identity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,8 +36,17 @@ public class RegisterController {
 	@PostMapping(path = "/register")
     public ResponseEntity<?> register(@RequestBody Registration registration) {
 
-        Identity identity = Identity.fromRegistration(registration);
-        Identity result = registerClient.create(identity);
+        Identity identity = new Identity();
+        identity.setTelephoneNumber(registration.getTelephoneNumber());
+
+        Resource<Identity> resultIdentity = registerClient.create(identity);
+
+	    for (String c : registration.getCodes()) {
+            Code code = new Code();
+            code.setValue(c);
+	        Code resultCode = registerClient.create(code);
+	        registerClient.linkIdentity(resultCode.getId(), resultIdentity.getId().getHref());
+        }
 
         return new ResponseEntity<>(HttpStatus.OK);
     }

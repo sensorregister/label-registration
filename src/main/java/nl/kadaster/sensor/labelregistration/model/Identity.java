@@ -1,19 +1,18 @@
 package nl.kadaster.sensor.labelregistration.model;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.google.common.base.MoreObjects;
-import nl.kadaster.sensor.labelregistration.controller.RegisterController;
+import org.springframework.hateoas.Resource;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Identity {
 
 	private String id;
 	private String telephoneNumber;
-	private List<Code> codes;
+	private List<Resource<Code>> codes = new ArrayList<Resource<Code>>();
 
 	public String getId() {
 		return id;
@@ -31,11 +30,11 @@ public class Identity {
 		this.telephoneNumber = telephoneNumber;
 	}
 
-	public List<Code> getCodes() {
+	public List<Resource<Code>> getCodes() {
 		return codes;
 	}
 
-	public void setCodes(List<Code> codes) {
+	public void setCodes(List<Resource<Code>> codes) {
 		this.codes = codes;
 	}
 
@@ -48,31 +47,4 @@ public class Identity {
 				.toString();
 	}
 
-	public static Identity fromRegistration(RegisterController.Registration registration) {
-		Identity result = new Identity();
-		result.setTelephoneNumber(registration.getTelephoneNumber());
-
-		result.setCodes(registration.getCodes().stream().map(Code::new).collect(Collectors.toList()));
-
-		return result;
-	}
-
-	public static class Code {
-		private String value;
-
-		public Code() {
-		}
-
-		public Code(String value) {
-			this.value = value;
-		}
-
-		public String getValue() {
-			return value;
-		}
-
-		public void setValue(String value) {
-			this.value = value;
-		}
-	}
 }
